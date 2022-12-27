@@ -1,0 +1,568 @@
+{
+  "buildInfo": {
+    "rustc": {
+      "version": "1.67.0-nightly",
+      "commitHash": "1eb62b1235fd77200e6bd967d70e83c0f2497233",
+      "commitDate": "2022-11-27",
+      "channel": "Nightly",
+      "short": "rustc 1.67.0-nightly (1eb62b123 2022-11-27)"
+    },
+    "contractCrate": {
+      "name": "sc-liquid-staking-mock",
+      "version": "0.0.0",
+      "git_version": "82ae42c-modified"
+    },
+    "framework": {
+      "name": "elrond-wasm",
+      "version": "0.36.1"
+    }
+  },
+  "name": "StakeContract",
+  "constructor": {
+    "inputs": [],
+    "outputs": []
+  },
+  "endpoints": [
+    {
+      "name": "stake",
+      "mutability": "mutable",
+      "payableInTokens": ["EGLD"],
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "unstake",
+      "mutability": "mutable",
+      "payableInTokens": ["*"],
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "claim",
+      "mutability": "mutable",
+      "payableInTokens": ["*"],
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "delegate_test",
+      "onlyOwner": true,
+      "mutability": "mutable",
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "getStakeAdmin",
+      "onlyOwner": true,
+      "mutability": "mutable",
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "getRewardsAdmin",
+      "onlyOwner": true,
+      "mutability": "mutable",
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "push_validators",
+      "onlyOwner": true,
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "address",
+          "type": "Address"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "delegateAdmin",
+      "onlyOwner": true,
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "amount",
+          "type": "BigUint"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "delegate_direct",
+      "onlyOwner": true,
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "address",
+          "type": "Address"
+        },
+        {
+          "name": "amount",
+          "type": "BigUint"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "undelegate_direct",
+      "onlyOwner": true,
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "address",
+          "type": "Address"
+        },
+        {
+          "name": "amount",
+          "type": "BigUint"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "redelegate",
+      "onlyOwner": true,
+      "mutability": "mutable",
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "getValidatorsCount",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "getEpochValidators",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "variadic<Address>",
+          "multi_result": true
+        }
+      ]
+    },
+    {
+      "name": "getUsedValidators",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "variadic<Address>",
+          "multi_result": true
+        }
+      ]
+    },
+    {
+      "name": "getValidators",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "variadic<Address>",
+          "multi_result": true
+        }
+      ]
+    },
+    {
+      "name": "getTotalStaked",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "BigUint"
+        }
+      ]
+    },
+    {
+      "name": "getTotalTokenSupply",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "BigUint"
+        }
+      ]
+    },
+    {
+      "name": "getExchangeRate",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "BigUint"
+        }
+      ]
+    },
+    {
+      "name": "getDeltaStake",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "BigInt"
+        }
+      ]
+    },
+    {
+      "name": "getMappingIndex",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "getRewardsMappingIndex",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "getStakeAmounts",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "variadic<multi<u64,BigUint>>",
+          "multi_result": true
+        }
+      ]
+    },
+    {
+      "name": "getRewardsAmounts",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "variadic<multi<u64,BigUint>>",
+          "multi_result": true
+        }
+      ]
+    },
+    {
+      "name": "getStakeInfoFinished",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "getRewardsInfoFinished",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "getFilteredStakeAmountsLength",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "getFilteredStakeAmounts",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "List<StakeAmount>"
+        }
+      ]
+    },
+    {
+      "name": "getRewardsAmount",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "variadic<RewardsAmount>",
+          "multi_result": true
+        }
+      ]
+    },
+    {
+      "name": "getCallbackResult",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "BigUint"
+        }
+      ]
+    },
+    {
+      "name": "getProtocolRevenue",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "BigUint"
+        }
+      ]
+    },
+    {
+      "name": "getServiceFee",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "BigUint"
+        }
+      ]
+    },
+    {
+      "name": "getStEgldId",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "TokenIdentifier"
+        }
+      ]
+    },
+    {
+      "name": "getUEgldId",
+      "mutability": "readonly",
+      "inputs": [],
+      "outputs": [
+        {
+          "type": "TokenIdentifier"
+        }
+      ]
+    },
+    {
+      "name": "setServiceFee",
+      "onlyOwner": true,
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "amount",
+          "type": "BigUint"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "setMappingIndex",
+      "onlyOwner": true,
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "index",
+          "type": "u32"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "setRewardsMappingIndex",
+      "onlyOwner": true,
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "index",
+          "type": "u32"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "setDeltaStake",
+      "onlyOwner": true,
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "amount",
+          "type": "BigInt"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "setTotalStaked",
+      "onlyOwner": true,
+      "mutability": "mutable",
+      "inputs": [
+        {
+          "name": "amount",
+          "type": "BigUint"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "clearRewardsAmounts",
+      "onlyOwner": true,
+      "mutability": "mutable",
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "clearValidators",
+      "onlyOwner": true,
+      "mutability": "mutable",
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "issueToken",
+      "onlyOwner": true,
+      "mutability": "mutable",
+      "payableInTokens": ["EGLD"],
+      "inputs": [
+        {
+          "name": "token_display_name",
+          "type": "bytes"
+        },
+        {
+          "name": "token_ticker",
+          "type": "bytes"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "setLocalRoles",
+      "onlyOwner": true,
+      "mutability": "mutable",
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "issueUndelegatedToken",
+      "onlyOwner": true,
+      "mutability": "mutable",
+      "payableInTokens": ["EGLD"],
+      "inputs": [
+        {
+          "name": "token_display_name",
+          "type": "bytes"
+        },
+        {
+          "name": "token_ticker",
+          "type": "bytes"
+        },
+        {
+          "name": "num_decimals",
+          "type": "u32"
+        }
+      ],
+      "outputs": []
+    },
+    {
+      "name": "distributeProtocolRevenue",
+      "mutability": "mutable",
+      "inputs": [],
+      "outputs": []
+    },
+    {
+      "name": "updateExchangeRate",
+      "mutability": "mutable",
+      "inputs": [],
+      "outputs": []
+    }
+  ],
+  "events": [
+    {
+      "identifier": "issue-started",
+      "inputs": [
+        {
+          "name": "caller",
+          "type": "Address",
+          "indexed": true
+        },
+        {
+          "name": "token_ticker",
+          "type": "bytes",
+          "indexed": true
+        },
+        {
+          "name": "initial_supply",
+          "type": "BigUint"
+        }
+      ]
+    },
+    {
+      "identifier": "issue-success",
+      "inputs": [
+        {
+          "name": "caller",
+          "type": "Address",
+          "indexed": true
+        },
+        {
+          "name": "token_identifier",
+          "type": "TokenIdentifier",
+          "indexed": true
+        },
+        {
+          "name": "initial_supply",
+          "type": "BigUint"
+        }
+      ]
+    },
+    {
+      "identifier": "issue-failure",
+      "inputs": [
+        {
+          "name": "caller",
+          "type": "Address",
+          "indexed": true
+        },
+        {
+          "name": "message",
+          "type": "bytes"
+        }
+      ]
+    }
+  ],
+  "hasCallback": true,
+  "types": {
+    "RewardsAmount": {
+      "type": "struct",
+      "fields": [
+        {
+          "name": "epoch",
+          "type": "u64"
+        },
+        {
+          "name": "amount",
+          "type": "BigUint"
+        }
+      ]
+    },
+    "StakeAmount": {
+      "type": "struct",
+      "fields": [
+        {
+          "name": "epoch",
+          "type": "u64"
+        },
+        {
+          "name": "amount",
+          "type": "BigUint"
+        }
+      ]
+    }
+  }
+}

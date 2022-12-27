@@ -1,0 +1,19 @@
+{
+  "name": "liquid-staking-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@elrondnetwork/erdjs": "^11.1.2",
+    "@elrondnetwork/erdjs-network-providers": "^1.1.3",
+    "@elrondnetwork/erdjs-walletcore": "^2.1.0",
+    "axios": "^1.2.1",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security"
+  }
+}
