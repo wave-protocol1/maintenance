@@ -36,6 +36,45 @@ export const getValidators = async () => {
   return { firstValue, secondValue, returnCode };
 };
 
+export const getRewardsAmounts = async () => {
+  const contract = await getContract();
+  let interaction = <Interaction>contract.methods.getRewardsAmounts();
+  let query = interaction.check().buildQuery();
+
+  let queryResponse = await networkProvider.queryContract(query);
+  let endpointDefinition = interaction.getEndpoint();
+  let { firstValue, secondValue, returnCode } =
+    resultsParser.parseQueryResponse(queryResponse, endpointDefinition);
+
+  return { firstValue, secondValue, returnCode };
+};
+
+export const getStakeInfoFinished = async () => {
+  const contract = await getContract();
+  let interaction = <Interaction>contract.methods.getStakeInfoFinished();
+  let query = interaction.check().buildQuery();
+
+  let queryResponse = await networkProvider.queryContract(query);
+  let endpointDefinition = interaction.getEndpoint();
+  let { firstValue, secondValue, returnCode } =
+    resultsParser.parseQueryResponse(queryResponse, endpointDefinition);
+
+  return { firstValue, secondValue, returnCode };
+};
+
+export const getRedelegateFinished = async () => {
+  const contract = await getContract();
+  let interaction = <Interaction>contract.methods.getRedelegateFinished();
+  let query = interaction.check().buildQuery();
+
+  let queryResponse = await networkProvider.queryContract(query);
+  let endpointDefinition = interaction.getEndpoint();
+  let { firstValue, secondValue, returnCode } =
+    resultsParser.parseQueryResponse(queryResponse, endpointDefinition);
+
+  return { firstValue, secondValue, returnCode };
+};
+
 export const getDeltaStake = async () => {
   const contract = await getContract();
   let interaction = <Interaction>contract.methods.getDeltaStake();

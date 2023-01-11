@@ -6,7 +6,7 @@ import {
   getTotalRewards,
   getTotalStake,
 } from "./utils/apiCalls";
-import { getStakeAmounts } from "./utils/query";
+import { getStakeAmounts, getValidators } from "./utils/query";
 import { delegate, pushValidators, setTotalStaked } from "./utils/transaction";
 
 const express = require("express");
@@ -17,12 +17,16 @@ app.get("/", (req: any, res: any) => {
   res.send("Hello World!");
 });
 
+// getValidators().then((res) =>
+//   console.log("res", res?.firstValue?.valueOf().valueOf())
+// );
+
 // getAllValidators().then((res) => console.log("data", res));
 
-getTotalStake().then((res) => {
-  // setTotalStaked(res.toString());
-  console.log("res.toString(", res.toString());
-});
+// getTotalStake().then((res) => {
+//   // setTotalStaked(res.toString());
+//   console.log("res.toString(", res.toString());
+// });
 
 // pushValidators();
 
@@ -36,7 +40,7 @@ getTotalStake().then((res) => {
 // );
 
 // getStakePerValidator();
-// calculateDelegation();
+
 // getStakeAmounts().then((res) =>
 //   // @ts-ignore
 //   console.log("res", res?.firstValue.valueOf().valueOf())

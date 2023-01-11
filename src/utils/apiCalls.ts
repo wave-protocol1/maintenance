@@ -69,3 +69,9 @@ export const getAllValidators = async () => {
 
   return ranked;
 };
+
+export const getEpoch = async () => {
+  let data = await axios.get(`${API_URL}/stats`);
+
+  return data?.data.epoch;
+};

@@ -11,8 +11,7 @@ export const CHAIN_ID = "D";
 // export const EXPLORER_URL = "https://testnet-explorer.elrond.com/transactions/";
 // export const CHAIN_ID = "T";
 
-// export const GATEWAY_URL =
-//   "https://gateway.elrond.com";
+// export const GATEWAY_URL = "https://gateway.elrond.com";
 // export const API_URL = "https://api.elrond.com";
 // export const EXPLORER_URL = "https://explorer.elrond.com/transactions/";
 // export const CHAIN_ID = "1";
