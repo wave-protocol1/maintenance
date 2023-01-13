@@ -38,5 +38,3 @@ maximise its APR.
 The EGLD provided by users with Liquid Staking is delegated daily
 based on the results of this algorithm. 
 
-The data the Smart Contract receives can be found here: link
-
