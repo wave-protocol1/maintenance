@@ -24,12 +24,15 @@ const signer = UserSigner.fromPem(pem);
 // cron job to perform all tasks
 
 // create a cron job that runs every 2 hours
-
-// cron.schedule("0 */2 * * *", () => {
-//   console.log("running a task every two hours");
-//   // perform all tasks
-//   performAllTasks();
-// });
+const job = new cron.CronJob(
+  "0 */2 * * *",
+  async () => {
+    performAllTasks();
+  },
+  null,
+  true,
+  "Europe/Bucharest"
+);
 
 const performAllTasks = async () => {
   let validators = await getValidators();
@@ -137,7 +140,6 @@ const checkIfSecondBatchFinished = async (epoch: number) => {
   let rewardsAmounts = rewardsAmountsData.firstValue?.valueOf();
 
   let isFinished = rewardsAmounts?.some((amount: string) => {
-    console.log("amount", amount.valueOf());
     return amount.valueOf() == epoch.toString();
   });
 
@@ -151,7 +153,6 @@ const checkIfThirdBatchFinished = async (epoch: number) => {
   let rewardsAmounts = rewardsAmountsData.firstValue?.valueOf();
 
   let isFinished = rewardsAmounts?.some((amount: string) => {
-    console.log("amount", amount.valueOf());
     return amount.valueOf() == epoch.toString();
   });
 
