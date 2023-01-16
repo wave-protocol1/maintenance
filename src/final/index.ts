@@ -25,8 +25,8 @@ const pem = process.env.PRIVATE_KEY;
 const signer = UserSigner.fromPem(pem);
 
 const job = new cron.CronJob(
-  "0 */2 * * *",
-  async () => {
+  "45 */2 * * *",
+  () => {
     performAllTasks();
   },
   null,
@@ -34,10 +34,12 @@ const job = new cron.CronJob(
   "Europe/Bucharest"
 );
 
+job.start();
 const performAllTasks = async () => {
   let validators = await getValidators();
 
   let epoch = await getEpoch();
+  console.log("running");
 
   let validatorsNumber = validators?.firstValue?.valueOf().length;
 
@@ -150,5 +152,3 @@ const checkIfThirdBatchFinished = async (epoch: number) => {
 
   return isFinished;
 };
-
-job.start();
