@@ -4,8 +4,11 @@ import { getContract } from "../abi";
 import { CHAIN_ID, networkProvider } from "../config";
 import fs from "fs";
 
-const pem = fs.readFileSync("src/wallet/wallet.pem", "utf8");
+require("dotenv").config();
 
+const pem = process.env.PRIVATE_KEY;
+
+// @ts-ignore
 const signer = UserSigner.fromPem(pem);
 
 export const pushValidators = async () => {

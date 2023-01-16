@@ -18,12 +18,12 @@ import { networkProvider } from "../config";
 import { UserSigner } from "@elrondnetwork/erdjs-walletcore/out";
 import { getEpoch } from "../utils/apiCalls";
 
-const pem = fs.readFileSync("src/wallet/wallet.pem", "utf8");
+require("dotenv").config();
+
+const pem = process.env.PRIVATE_KEY;
+// @ts-ignore
 const signer = UserSigner.fromPem(pem);
 
-// cron job to perform all tasks
-
-// create a cron job that runs every 2 hours
 const job = new cron.CronJob(
   "0 */2 * * *",
   async () => {
