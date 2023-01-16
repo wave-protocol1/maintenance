@@ -44,6 +44,7 @@ const performAllTasks = async () => {
   let isFinished = await checkIfFirstBatchFinished(epoch);
   !isFinished && performFirstBatch(validatorsNumber);
 
+  // TODO: unnest this
   let interval = setInterval(async () => {
     let isFinished = await checkIfFirstBatchFinished(epoch);
 
@@ -75,17 +76,6 @@ const performAllTasks = async () => {
   }, 5000);
 
   checkIfSecondBatchFinished(epoch);
-
-  // redelegate nx
-  //   redelegateAdmin();
-  //   //
-  //   // get stake nx
-  //   for (let i = 0; i < 4; i++) {
-  //     getStakeAdmin();
-  //   }
-  //   //
-  //   // update exchange rate 1x
-  //   updateExchangeRate();
 };
 
 const performFirstBatch = async (validatorsNumber: number) => {
@@ -161,4 +151,4 @@ const checkIfThirdBatchFinished = async (epoch: number) => {
   return isFinished;
 };
 
-performAllTasks();
+job.start();
